@@ -49,19 +49,44 @@
     // Rally leader info
     const rallyLeader = [
       {
-        name: "Q Coldwater",
-        marching_speed: "148",
-        travelling_time: "75",
+        name: "Vilmarys",
+        marching_speed: "162",
+        travelling_time: "52",
       },
       {
-        name: "Q Manley",
+        name: "Oni Fae",
+        marching_speed: "173",
+        travelling_time: "48",
+      },
+      {
+        name: "Gone Mad",
+        marching_speed: "188",
+        travelling_time: "44",
+      },
+      {
+        name: "TEALC",
+        marching_speed: "166",
+        travelling_time: "50",
+      },
+      {
+        name: "Apophiz",
+        marching_speed: "148.5",
+        travelling_time: "56",
+      },
+      {
+        name: "Epix",
         marching_speed: "158",
-        travelling_time: "72",
+        travelling_time: "53",
       },
       {
         name: "Chet Manley",
-        marching_speed: "168",
-        travelling_time: "71",
+        marching_speed: "169",
+        travelling_time: "49",
+      },
+      {
+        name: "Rouge Jake",
+        marching_speed: "175",
+        travelling_time: "48",
       },
     ];
     const GRACE_PERIOD = 5;
@@ -69,10 +94,10 @@
 
     // Compare function
     const compare = (a, b) => {
-      if (a.travelling_time < b.travelling_time) {
+      if (parseInt(a.travelling_time) < parseInt(b.travelling_time)) {
         return 1;
       }
-      if (a.travelling_time > b.travelling_time) {
+      if (parseInt(a.travelling_time) > parseInt(b.travelling_time)) {
         return -1;
       }
       return 0;
