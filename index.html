@@ -50,43 +50,53 @@
     const rallyLeader = [
       {
         name: "Vilmarys",
-        marching_speed: "162",
-        travelling_time: "52",
+        marching_speed: "172",
+        travelling_time: "62",
       },
       {
         name: "Oni Fae",
         marching_speed: "173",
-        travelling_time: "48",
+        travelling_time: "62",
       },
       {
         name: "Gone Mad",
         marching_speed: "188",
-        travelling_time: "44",
+        travelling_time: "57",
       },
       {
         name: "TEALC",
         marching_speed: "166",
-        travelling_time: "50",
+        travelling_time: "64",
       },
       {
         name: "Apophiz",
-        marching_speed: "148.5",
-        travelling_time: "56",
+        marching_speed: "169.5",
+        travelling_time: "63",
       },
       {
         name: "Epix",
         marching_speed: "158",
-        travelling_time: "53",
+        travelling_time: "68",
       },
       {
         name: "Chet Manley",
         marching_speed: "169",
-        travelling_time: "49",
+        travelling_time: "63",
       },
       {
         name: "Rouge Jake",
         marching_speed: "175",
-        travelling_time: "48",
+        travelling_time: "61",
+      },
+      {
+        name: "Demon Cat",
+        marching_speed: "159",
+        travelling_time: "67",
+      },
+      {
+        name: "Centurion",
+        marching_speed: "172",
+        travelling_time: "62",
       },
     ];
     const GRACE_PERIOD = 5;
@@ -123,7 +133,7 @@
       rallyLeader.forEach((value, index) => {
         $("tbody").append(`
             <tr>
-              <td scope="row">(${index}) ${value.name}</td>
+              <td scope="row">(${index + 1}) ${value.name}</td>
               <td>0</td>
               <td>${value.marching_speed}%</td>
               <td>${value.travelling_time}s</td>
