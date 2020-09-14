@@ -10,24 +10,117 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <style>
+      .constructs .form-check,
+      .base .form-check {
+        margin-top: 10px;
+      }
+    </style>
   </head>
-
-  <body style="margin: 10px 20px 0px 20px">
-    <h1>Temple of Mother</h1>
+  <body style="margin: 20px 20px 0px 20px">
     <div class="section">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Rally Leaders</th>
-            <th scope="col">ETA</th>
-            <th scope="col">Marching Speed</th>
-            <th scope="col">Travelling Time</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <button type="button" class="btn btn-primary" id="set">SET</button>
-      <button type="button" class="btn btn-primary" id="start">START</button>
+      <div class="row">
+        <div class="col-md-2">
+          <div style="display: flex; flex-direction: column" class="base">
+            <h5><b>BASE</b></h5>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="base"
+                id="lannister-base"
+                value="Lannister"
+              />
+              <label class="form-check-label" for="lannister-base"
+                >Lannister</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="base"
+                id="targaryen-base"
+                value="Targaryen"
+              />
+              <label class="form-check-label" for="targaryen-base"
+                >Targaryen</label
+              >
+            </div>
+          </div>
+          <div
+            style="display: flex; flex-direction: column; margin-top: 20px"
+            class="constructs"
+          >
+            <h5><b>CONSTRUCTS</b></h5>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="constructs"
+                id="temple-mother"
+                value="Temple-of-Mother"
+              />
+              <label class="form-check-label" for="temple-mother"
+                >Temple of Mother</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="constructs"
+                id="casterly-rock"
+                value="Casterly-Rock"
+              />
+              <label class="form-check-label" for="casterly-rock"
+                >Casterly Rock</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="constructs"
+                id="lannister-port"
+                value="Lannister-Port"
+              />
+              <label class="form-check-label" for="lannister-port"
+                >Lannister Port</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="constructs"
+                id="targaryen-port"
+                value="Targaryen-Port"
+              />
+              <label class="form-check-label" for="targaryen-port"
+                >Targaryen Port</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Rally Leaders</th>
+                <th scope="col">ETA</th>
+                <th scope="col">Marching Speed</th>
+                <th scope="col">Travelling Time</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <button type="button" class="btn btn-primary" id="set">SET</button>
+          <button type="button" class="btn btn-primary" id="start">
+            START
+          </button>
+        </div>
+      </div>
     </div>
   </body>
   <script
@@ -51,63 +144,80 @@
       {
         name: "Vilmarys",
         marching_speed: "172",
-        travelling_time: "62",
+        travelling_time: "0",
       },
       {
         name: "Oni Fae",
         marching_speed: "173",
-        travelling_time: "62",
+        travelling_time: "0",
       },
       {
         name: "Gone Mad",
         marching_speed: "188",
-        travelling_time: "57",
+        travelling_time: "0",
       },
       {
         name: "TEALC",
         marching_speed: "166",
-        travelling_time: "64",
+        travelling_time: "0",
       },
       {
         name: "Apophiz",
         marching_speed: "169.5",
-        travelling_time: "63",
+        travelling_time: "0",
       },
       {
         name: "Epix",
         marching_speed: "158",
-        travelling_time: "68",
+        travelling_time: "0",
       },
       {
         name: "Chet Manley",
         marching_speed: "169",
-        travelling_time: "63",
+        travelling_time: "0",
       },
       {
         name: "Rouge Jake",
         marching_speed: "175",
-        travelling_time: "61",
+        travelling_time: "0",
       },
       {
         name: "Demon Cat",
         marching_speed: "159",
-        travelling_time: "67",
+        travelling_time: "0",
       },
       {
         name: "Centurion",
         marching_speed: "172",
-        travelling_time: "62",
+        travelling_time: "0",
+      },
+      {
+        name: "DroGoN",
+        marching_speed: "165.5",
+        travelling_time: "0",
       },
     ];
     const GRACE_PERIOD = 5;
+    const BASE_COORDS = {
+      // Base coordinates: X, Y
+      Targaryen: [25, 65],
+      Lannister: [137, 9],
+    };
+    const CONSTRUCT_COORDS = {
+      // Base coordinates: X, Y
+      "Temple-of-Mother": [42, 13],
+      "Casterly-Rock": [82, 38],
+      "Lannister-Port": [132, 23],
+      "Targaryen-Port": [32, 53],
+    };
     let INTERVAL_ID;
 
     // Compare function
     const compare = (a, b) => {
-      if (parseInt(a.travelling_time) < parseInt(b.travelling_time)) {
+      if (parseFloat(a.marching_speed) > parseFloat(b.marching_speed)) {
         return 1;
       }
-      if (parseInt(a.travelling_time) > parseInt(b.travelling_time)) {
+      if (parseFloat(a.marching_speed) < parseFloat(b.marching_speed)) {
         return -1;
       }
       return 0;
@@ -142,27 +252,50 @@
       });
     });
 
+    const isTravelTimeFalse = () => {
+      return rallyLeader.every((el) => {
+        return el.travelling_time == false;
+      });
+    };
+
     // Reset
     $("#set").click(function () {
+      // Update array values
+      rallyLeader.map((value, index) => {
+        value["travelling_time"] = getTravelTime(
+          rallyLeader[index].marching_speed
+        );
+        value["eta"] = getETA(rallyLeader, index, GRACE_PERIOD);
+        return value;
+      });
+
+      if (isTravelTimeFalse()) {
+        alert("Please select base and construct.");
+        return false;
+      }
+      // Update table color
       $("tbody tr").css({
         color: "black",
         "font-weight": "normal",
       });
+      // Set rally time
       setRallyTime();
+      // Clear interval
       clearInterval(INTERVAL_ID);
     });
 
     const setRallyTime = () => {
       $("tbody tr").each((index, el) => {
         $(el).find("td").eq(1).html(getETA(rallyLeader, index, GRACE_PERIOD));
+        $(el).find("td").eq(3).html(`${rallyLeader[index].travelling_time}s`);
       });
     };
 
     $("#start").click(function () {
-      rallyLeader.map((value, index) => {
-        value["eta"] = getETA(rallyLeader, index, GRACE_PERIOD);
-        return value;
-      });
+      if (isTravelTimeFalse()) {
+        alert("Please select base and construct, the click set.");
+        return false;
+      }
 
       INTERVAL_ID = setInterval(function () {
         rallyLeader.map((value, index) => {
@@ -183,5 +316,37 @@
         });
       }, 1000);
     });
+
+    const getTravelTime = (bonus) => {
+      const baseOption = $("input[type=radio][name=base]:checked").val();
+      const baseCoords = BASE_COORDS[baseOption];
+      const constructOption = $(
+        "input[type=radio][name=constructs]:checked"
+      ).val();
+      const constructCoords = CONSTRUCT_COORDS[constructOption];
+
+      if (!baseOption || !constructOption) {
+        return false;
+      }
+
+      // Troop type: CAV
+      const troop = 4;
+      // Magic value for AC map
+      const scale = 2.244;
+      const realDistance = Math.sqrt(
+        Math.pow(parseFloat(baseCoords[0]) - constructCoords[0], 2) +
+          Math.pow(
+            parseFloat(baseCoords[1]) +
+              (baseCoords[0] & 1) / 2 -
+              constructCoords[1] -
+              (constructCoords[0] & 1) / 2,
+            2
+          )
+      );
+      const secondsOfTravel =
+        (((scale * realDistance * 100) / bonus) * 2) / troop;
+
+      return Math.round(secondsOfTravel);
+    };
   </script>
 </html>
